@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Personas</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
-</body>
-</html>
+    <header>
+      <h1>Personas DAP3</h1>
+     <!-- <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Lista</a>
+      </nav> -->
+    </header>
+  
+    <main>
+      <section class="formulario">
+        <h2>Agregar Apellido</h2>
+        <input type="text" id="apellidoInput" placeholder="Ingrese apellido"/>
+        <button id="agregarBtn">Agregar</button>
+      </section>
+  
+      <section class="lista">
+        <h2>Lista de Apellidos</h2>
+        <ul id="listaPersonas"></ul>
+      </section>
+  
+      <section class="foto">
+        <h2>Foto Seleccionada</h2>
+        <img id="fotoPersona" src="" alt="Foto de la persona seleccionada" />
+      </section>
+    </main> 
+  
+    <script src="script.js"></script>
+  </body>
+  </html>
+  
