@@ -41,7 +41,20 @@ li:hover {
 background-color: #e0f7fa;
 }
 
-button, imput[type="text"]
+button, imput[type="text"]{
+padding: 8px;
+margin-top: 10px;
+}
+
+img{
+max-width: 200px;
+display: none;
+margin-top: 10px;
+border: 2px solid #005f73;
+}
+
+
+
 
 
     
