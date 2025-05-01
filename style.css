@@ -5,12 +5,47 @@
     font-family: 'Lato', sans-serif;
   }
   
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    background: url(imagenes/biblioteca.jpg) no-repeat center center/ cover;
+    body {
+    font-family: arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
   }
+
+    header {
+        background-color: #005f73;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+  }
+  
+  section {
+       margin-top: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+li {
+padding: 8px;
+border-bottom: 1px solid #ccc;
+display: flex;
+align-items: center;
+justify-content: space-between;
+transition: background-color 0.3s;
+}
+
+li:hover {
+background-color: #e0f7fa;
+}
+
+button, imput[type="text"]
+
+
+    
+    
+    
+
   
