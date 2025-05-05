@@ -24,7 +24,7 @@ function mostrarLista() {
         span.addEventListener("click", () => mostrarFoto(apellido));
 
         const checkbox = document.createElement("input");
-        checkbox, type = "checkbox";
+        checkbox.type = "checkbox";
 
         const editarBtn = document.createElement("button");
         editarBtn.textContent = "Editar";
