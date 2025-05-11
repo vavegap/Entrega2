@@ -1,63 +1,82 @@
 const lista = document.getElementById("listaPersonas");
 const input = document.getElementById("apellidoInput");
 const agregarBtn = document.getElementById("agregarBtn");
-const foto = document.getElementById("fotoPersona");
+const carouselInner = document.getElementById("carouselInner");
 
 let personas = [];
 
 agregarBtn.addEventListener("click", () => {
-    const apellido = input.value.trim();
-    if (apellido !== "") {
-        personas.push(apellido);
-        mostrarLista();
-        input.value = "";
-    }
+  const apellido = input.value.trim();
+  if (apellido !== "") {
+    personas.push(apellido);
+    mostrarLista();
+    input.value = "";
+  }
 });
 
 function mostrarLista() {
-    lista.innerHTML = "";
-    personas.forEach((apellido, index) => {
-        const li = document.createElement("li");
+  lista.innerHTML = "";
+  personas.forEach((apellido, index) => {
+    const li = document.createElement("li");
 
-        const span = document.createElement("span");
-        span.textContent = apellido;
-        span.addEventListener("click", () => mostrarFoto(apellido));
+    li.className = "list-group-item d-flex justify-content-between align-items-center";
 
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
+    const span = document.createElement("span");
+    span.textContent = apellido;
+    span.addEventListener("click", () => mostrarFoto(apellido));
 
-        const editarBtn = document.createElement("button");
-        editarBtn.textContent = "Editar";
-        editarBtn.onclick = () => editarApellido(index);
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "form-check-input me-2";
 
-        const elinarBtn = document.createElement("button");
-        elinarBtn.textContent = "Eliminar";
-        elinarBtn.onclick = () => {
-            personas.splice(index, 1);
-            mostrarLista();
-            foto.style.display = "none";
-        };
+    const editarBtn = document.createElement("button");
+    editarBtn.textContent = "Editar";
+    editarBtn.className = "btn btn-warning btn-sm shadow";
+    editarBtn.onclick = () => editarApellido(index);
 
-        li.appendChild(checkbox);
-        li.appendChild(span);
-        li.appendChild(editarBtn);
-        li.appendChild(elinarBtn);
+    const eliminarBtn = document.createElement("button");
+    eliminarBtn.textContent = "Eliminar";
+    eliminarBtn.className = "btn btn-danger btn-sm shadow";
+    eliminarBtn.onclick = () => {
+      personas.splice(index, 1);
+      mostrarLista();
+    };
 
-        lista.appendChild(li);
-    });
+    const btnGroup = document.createElement("div");
+    btnGroup.appendChild(editarBtn);
+    btnGroup.appendChild(eliminarBtn);
+
+    li.appendChild(checkbox);
+    li.appendChild(span);
+    li.appendChild(btnGroup);
+
+    lista.appendChild(li);
+  });
 }
 
 function mostrarFoto(apellido) {
-    foto.src = `imagenes/${apellido.toLowerCase()}.jpg`;
-    foto.style.display = "block";
+  const imgPath = `imagenes/${apellido.toLowerCase()}.jpg`;
+  const carouselItem = document.createElement("div");
+  carouselItem.className = "carousel-item";
+
+  const img = document.createElement("img");
+  img.src = imgPath;
+  img.className = "d-block w-100";
+  img.alt = apellido;
+
+  carouselItem.appendChild(img);
+
+  if (carouselInner.children.length === 0) {
+    carouselItem.classList.add("active");
+  }
+
+  carouselInner.appendChild(carouselItem);
 }
 
 function editarApellido(index) {
-    const nuevoApellido = prompt("Editar apellido:", personas[index]);
-    if (nuevoApellido) {
-        personas[index] = nuevoApellido.trim();
-        mostrarLista();
-    }
+  const nuevoApellido = prompt("Editar apellido:", personas[index]);
+  if (nuevoApellido) {
+    personas[index] = nuevoApellido.trim();
+    mostrarLista();
+  }
 }
-
-
