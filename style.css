@@ -27,8 +27,22 @@ padding: 8px;
 border-bottom: 1px solid #ccc;
 display: flex;
 align-items: center;
-justify-content: space-between;
+justify-content: flex-start;
 transition: background-color 0.3s;
+gap: 40px;
+}
+
+li span {
+   flex: 3;
+   margin-right: 10px;
+}
+
+li button {
+     margin-left: 5px;
+}
+
+li input[type= "checkbox"] {
+     margin-right: 10px;
 }
 
 li:hover {
